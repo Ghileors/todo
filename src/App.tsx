@@ -1,9 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
-import AuthPage from './pages/AuthPage';
-import HomePage from './pages/HomePage';
-import CreatePage from './pages/CreatePage';
+import RegistrationPage from './pages/RegistrationPage';
+import LoginPage from './pages/LoginPage';
 import TodosPage from './pages/TodosPage';
 
 import Navbar from './components/Navbar';
@@ -21,14 +20,13 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Navbar />
       <div className={classes.root}>
       <Switch>
-        <Route path={'/'} exact component={HomePage}/>
-        <Route path={'/auth'} exact component={AuthPage}/>
-        <Route path={'/create'} exact component={CreatePage}/>
+        <Route path={'/registration'} exact component={RegistrationPage}/>        
+        <Route path={'/login'} exact component={LoginPage} />          
+        <Navbar />
         <Route path={'/todos'} exact component={TodosPage} />
-        <Redirect to={'/auth'} exact/>
+        <Redirect to={'/registration'} exact/>
       </Switch>
     </div>
     </BrowserRouter>
